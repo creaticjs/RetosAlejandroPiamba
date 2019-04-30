@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>RETO 5</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script> 
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+    crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.1.1/jspdf.plugin.autotable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.1.1/jspdf.plugin.autotable.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.1.1/dist/jspdf.plugin.autotable.min.js" integrity="sha256-wzKqeHt1gMI5nYoDzZlo1No2qtE8hiEb9mVMKen70wY="
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="../index.html">Retos Alejandro Piamba</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li nav-item><a class="nav-link" href="../../../Reto1-calculadora-Alejandro-Piamba/index.html">Reto 1</a></li>
+            <li nav-item><a class="nav-link" href="../../../Reto-2-Alejandro-Piamba/reto2/home/home.html">Reto 2</a></li>
+            <li nav-item><a class="nav-link" href="../../../Reto-3-Alejandro-Piamba/reto3/home/home.html">Reto 3</a></li>
+            <li nav-item><a class="nav-link" href="../../../Reto4-Alejandro-Piamba/vuegiph.html">Reto 4</a></li>
+            <li nav-item><a class="nav-link" href="../../../Reto5-Alejandro-Piamba/index.html">Reto 5</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  <div class="container" id="app">
+
+   
+    <br>
+    <br>
+    
+    <div class="invoice-box">
+      <table>
+        <tr class="heading">
+          <td colspan="3">Informacion de la empresa</td>
+        </tr>
+      </table>
+      
+      <br>
+      <form>
+        <div class="form-row" v-for="emp in empresa">
+          <div class="form-group col-md-6">
+            <input placeholder="nombre" class="form-control" v-model="emp.nombre" />
+          </div>
+          <div class="form-group col-md-6">
+            <input placeholder="nit" class="form-control" type="text" v-model="emp.nit" />
+          </div>
+          <div class="form-group col-md-6">
+            <input placeholder="Direccion" class="form-control" type="text" v-model="emp.direccion" />
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+    <br>
+
+    <div class="invoice-box">
+      <table>
+        <tr class="heading">
+          <td colspan="3">Informacion del cliente</td>
+        </tr>
+      </table>
+
+      <br>
+      <form>
+        <div class="form-row" v-for="cli in cliente">
+          <div class="form-group col-md-6">
+            <input placeholder="nombre" class="form-control" v-model="cli.nombre" />
+          </div>
+          <div class="form-group col-md-6">
+            <input placeholder="cedula" class="form-control" type="text" v-model="cli.cedula" />
+          </div>
+          <div class="form-group col-md-6">
+            <input placeholder="telefono" class="form-control" type="text" v-model="cli.telefono" />
+          </div>
+          <div class="form-group col-md-6">
+            <input placeholder="direccion" class="form-control" v-model="cli.direccion" />
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <br>
+
+
+    <div class="invoice-box">
+      <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+          <td colspan="4">
+            <table>
+
+            </table>
+          </td>
+        </tr>
+
+
+        <tr class="heading">
+          <td>Productos</td>
+          <td>Precio</td>
+          <td>Cantidad</td>
+          <td>Total</td>
+
+        </tr>
+
+        <tr class="item" v-for="item in productos">
+          <td><input v-model="item.descripcion" /></td>
+          <td>$<input type="text" v-model="item.precio" /></td>
+          <td><input type="number" v-model="item.cantidad" /></td>
+          <td>${{item.precio * item.cantidad | currency }}</td>
+        </tr>
+
+        <tr class="total">
+          <td colspan="3"></td>
+          <td>Subtotal: ${{ total - total*0.19 | currency }}</td>
+        </tr>
+        <tr class="total">
+          <td colspan="3"></td>
+          <td>I.V.A (19%): ${{ total * 0.19 | currency }}</td>
+        </tr>
+        <tr class="total">
+          <td colspan="3"></td>
+          <td>Total: ${{ total | currency }}</td>
+        </tr>
+
+
+
+      </table>
+      <tr>
+        <td colspan="4">
+          <button class="btn btn-success" @click="agregarFila(descripcion, precio, cantidad)">Agregar producto</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <button class="btn btn-primary" @click="exportarPdf">Exportar Pdf</button>
+        </td>
+      </tr>
+
+    </div>
+    <br>
+
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
+
+
+
+  <script src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

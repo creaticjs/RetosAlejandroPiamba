@@ -1,0 +1,23 @@
+.centrar{
+    text-align: center;
+    
+}
+#rcorners2 {
+    margin-top: 100px;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 40px; 
+    width: 1000px;
+    height: 600px;  
+  }
+
+  #rcorners3 {
+    margin-top: 30px;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 40px; 
+    width: 300px;
+    height: 150px;  
+  }
+  
+  
